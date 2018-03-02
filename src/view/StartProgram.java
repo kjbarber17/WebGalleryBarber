@@ -10,7 +10,7 @@ public class StartProgram {
 	static Scanner in = new Scanner(System.in);
 	static ArtworkHelper ah = new ArtworkHelper();
 
-	private static void addAnItem() {
+	private static void addArtwork() {
 		// TODO Auto-generated method stub
 		System.out.print("Enter a title: ");
 		String title = in.nextLine();
@@ -36,38 +36,17 @@ public class StartProgram {
 		String artistName = in.nextLine();
 
 		Artwork toDelete = new Artwork(title, artistName);
-		ah.deleteItem(toDelete);
+		ah.deleteArtwork(toDelete);
 
 	}
 
-	/*private static void editAnItem() {
+	/*private static void editArtwork() {
 		// TODO Auto-generated method stub
-		System.out.println("How would you like to search? ");
-		System.out.println("1 : Search by Title");
-		System.out.println("2 : Search by Artist Name");
-		int searchBy = in.nextInt();
-		in.nextLine();
-		List<Artwork> foundItems;
-		if (searchBy == 1) {
-			System.out.print("Enter the title of the artwork: ");
-			String title = in.nextLine();
-			foundItems = ah.searchForItemByTitle(title);
-		} else {
-			System.out.print("Enter the Artist Name: ");
-			String artistName = in.nextLine();
-			foundItems = ah.searchForItemByTitle(artistName);
-
-		}
-
-		if (!foundItems.isEmpty()) {
-			System.out.println("Found Results.");
-			for (Artwork a : foundItems) {
-				System.out.println(a.getId() + " : " + a.toString());
-			}
+		
 			System.out.print("Which ID to edit: ");
 			int idToEdit = in.nextInt();
 
-			Artwork toEdit = ah.searchForItemById(idToEdit);
+			Artwork toEdit = ah.searchForArtworkById(idToEdit);
 			System.out.println("Retrieved " + toEdit.getMedia() + " from " + toEdit.getValue());
 			System.out.println("1 : Update Media");
 			System.out.println("2 : Update Value");
@@ -84,7 +63,7 @@ public class StartProgram {
 				toEdit.setValue(newValue);
 			}
 
-			ah.updateItem(toEdit);
+			ah.updateArtwork(toEdit);
 
 		} else {
 			System.out.println("---- No results found");
@@ -113,7 +92,7 @@ public class StartProgram {
 			in.nextLine();
 
 			if (selection == 1) {
-				addAnItem();
+				addArtwork();
 				//} else if (selection == 2) {
 				//editAnItem();
 			} else if (selection == 2) {
@@ -133,7 +112,7 @@ public class StartProgram {
 
 	private static void viewGallery() {
 		// TODO Auto-generated method stub
-		List<Artwork> allItems = ah.showAllItems();
+		List<Artwork> allItems = ah.showAllArtwork();
 		for(Artwork a: allItems) {
 			System.out.println(a.returnArtworkDetails());
 		}

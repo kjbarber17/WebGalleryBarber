@@ -20,13 +20,13 @@ public class ArtworkHelper {
 		em.close();
 	}
 
-	public List<Artwork> showAllItems() {
+	public List<Artwork> showAllArtwork() {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		TypedQuery<Artwork> allResults = em.createQuery("select a from Artwork a", Artwork.class);
-		List<Artwork> allItems = allResults.getResultList();
+		List<Artwork> allArtwork = allResults.getResultList();
 		em.close();
-		return allItems;
+		return allArtwork;
 	}
 	public void deleteArtwork(Artwork toDelete) {
 		// TODO Auto-generated method stub
@@ -41,17 +41,6 @@ public class ArtworkHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-
-	/*public List<Artwork> searchForItemByTitle(String title) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<Artwork> typedQuery = em.createQuery("select ah from Artwork ah where ah.title = :selectedTitle",Artwork.class);
-		typedQuery.setParameter("selectedTitle", title);
-		List<Artwork> result = typedQuery.getResultList();
-		em.close();
-		return result;
-	}*/
 
 	public Artwork searchForArtworkById(int idToDelete) {
 		// TODO Auto-generated method stub
@@ -69,31 +58,8 @@ public class ArtworkHelper {
 		em.merge(toEdit);
 		em.getTransaction().commit();
 		em.close();
-				
-	}
-/*
-	public List<ListItem> searchForItemByStore(String storeName) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<ListItem> typedQuery = em.createQuery("select li from ListItem li where li.store = :selectedStore",ListItem.class);
-		typedQuery.setParameter("selectedStore", storeName);
-		List<ListItem> result = typedQuery.getResultList();
-		em.close();
-		return result;
-	}
 
-	public List<ListItem> searchForItemByItemName(String itemName) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<ListItem> typedQuery = em.createQuery("select li from ListItem li where li.item = :selectedItem",ListItem.class);
-		typedQuery.setParameter("selectedItem", itemName);
-		List<ListItem> result = typedQuery.getResultList();
-		em.close();
-		return result;
 	}
-*/
 }
 
 
